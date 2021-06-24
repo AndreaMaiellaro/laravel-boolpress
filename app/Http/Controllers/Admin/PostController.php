@@ -14,7 +14,13 @@ class PostController extends Controller
      */
     public function index()
     {
-        //
+        $posts = Post::all();
+
+        $data = [
+            'posts' => $posts
+        ];
+
+        return view('admin.posts.index', $data);
     }
 
     /**
@@ -24,7 +30,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.posts.create');
     }
 
     /**
@@ -46,7 +52,13 @@ class PostController extends Controller
      */
     public function show($id)
     {
-        //
+        $post = Post::findOrFail($id);
+
+        $data = [
+            'post' => $post
+        ];
+
+        return view('admin.posts.show', $data);
     }
 
     /**
