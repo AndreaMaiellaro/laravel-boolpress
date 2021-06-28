@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Post;
+use App\Category;
 
 class PostController extends Controller
 {
@@ -176,6 +178,10 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $post = Post::findOrFail($id);
+        $post->tags()->sync([]);
+        $post->delete();
+
+        return redirect()->route('admin.posts.index');
     }
 }

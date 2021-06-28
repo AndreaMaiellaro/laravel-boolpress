@@ -29,7 +29,7 @@
                 <textarea class="form-control" name="content" id="content" cols="30" rows="10">{{ old('content') }}</textarea>
             </div>
 
-            
+
 
             <input type="submit" class="btn btn-success" value="Salva post">
         </form>
